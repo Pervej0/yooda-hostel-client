@@ -12,7 +12,7 @@ const Dashboard = () => {
                 <li>
                   <Link
                     className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
-                    to="dashboard"
+                    to="/"
                   >
                     Dashboard
                   </Link>
