@@ -8,8 +8,9 @@ const StudentList = () => {
   const [isDone, setIsDone] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [singleItem, setSignleItem] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
   const [studentCount, setStudentCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const perPageItem = 2;
   const getChecked = useRef(null);
 
@@ -19,14 +20,13 @@ const StudentList = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         setStudentData(data.products);
         setStudentCount(Math.ceil(data.count / perPageItem));
       });
   }, [isDone, currentPage]);
 
   const handleCheckBox = (e, id) => {
+    setIsChecked(true);
     // setCheckedID([...isChecked, id]);
   };
 
@@ -63,17 +63,20 @@ const StudentList = () => {
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <div className="my-3 text-right">
-                <button
-                  onClick={handleAllChecked}
-                  className="py-1 px-4 bg-black text-white rounded mr-3"
-                >
-                  Select All
-                </button>
-                <button className="py-1 px-4 bg-green-600 text-white rounded mr-3">
-                  Change Status
-                </button>
-              </div>
+              {isChecked && (
+                <div className="my-3 text-right">
+                  <button
+                    onClick={handleAllChecked}
+                    className="py-1 px-4 bg-black text-white rounded mr-3"
+                  >
+                    Select All
+                  </button>
+                  <button className="py-1 px-4 bg-green-600 text-white rounded mr-3">
+                    Change Status
+                  </button>
+                </div>
+              )}
+
               <table className="w-full">
                 <thead>
                   <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">

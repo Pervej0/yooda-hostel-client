@@ -12,11 +12,18 @@ import FoodServing from "./AdminPages/FoodServing/FoodServing";
 function App() {
   return (
     <div className="App">
-      <DashboardNav />
       <Router>
+        <DashboardNav />
         <Routes>
           <Route path="/" element={<Dashboard />}>
-            <Route path="/dashboard" element={<h1>Hello</h1>} />
+            <Route
+              path="/dashboard"
+              element={
+                <h1 className="text-center md:text-4xl text-2xl my-8 font-mono font-semibold">
+                  Welcome To Dashboard
+                </h1>
+              }
+            />
             <Route path="/dashboard/addFood" element={<AddFood />} />
             <Route path="/dashboard/addStudent" element={<AddStudent />} />
             <Route path="/dashboard/foodlist" element={<FoodList />} />

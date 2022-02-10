@@ -15,7 +15,6 @@ const FoodServing = () => {
     fetch("http://localhost:5000/studentlist")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data.products);
       });
   }, [isDone]);
@@ -49,7 +48,6 @@ const FoodServing = () => {
         setIsSearched(true);
         setData(data);
       });
-    console.log(dateVal);
   };
 
   return (

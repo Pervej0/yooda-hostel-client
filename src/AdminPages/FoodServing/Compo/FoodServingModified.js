@@ -3,7 +3,13 @@ import { useForm } from "react-hook-form";
 
 const FoodServingModified = ({ setShowModal, setIsDone, item }) => {
   const { register, handleSubmit } = useForm();
-  const [date, setDate] = useState("");
+  const [foodItems, setFoodItems] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/foodlist")
+      .then((res) => res.json())
+      .then((data) => setFoodItems(data.products));
+  }, []);
 
   const onSubmit = (data) => {
     data.serveStatus = "Served";
@@ -34,7 +40,9 @@ const FoodServingModified = ({ setShowModal, setIsDone, item }) => {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             {/*header*/}
             <div className="flex items-start justify-between p-5 mt-14 border-b border-solid border-blueGray-200 rounded-t">
-              <h3 className="text-2xl font-mono font-semibold">Serve food</h3>
+              <h3 className="text-2xl font-mono font-semibold mt-16">
+                Serve food
+              </h3>
               <button
                 className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                 onClick={() => setShowModal(false)}
@@ -108,6 +116,17 @@ const FoodServingModified = ({ setShowModal, setIsDone, item }) => {
                 min="1997-01-01"
                 {...register("date", { required: true })}
               />
+              <label className="text-sm font-bold">Food Items</label>
+              <select
+                className="block border border-black w-full px-3 py-1 text-lg my-3"
+                {...register("foodItem", { required: true })}
+              >
+                {foodItems.map((item) => (
+                  <option key={item._id} value={item.foodName}>
+                    {item.foodName}
+                  </option>
+                ))}
+              </select>
               <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                 <button
                   className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"

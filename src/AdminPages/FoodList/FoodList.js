@@ -8,7 +8,7 @@ const FoodList = () => {
   const [isDone, setIsDone] = useState(false);
   const [singleItem, setSignleItem] = useState({});
   const [productCount, setProductCount] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const perPageItem = 2;
 
   useEffect(() => {
