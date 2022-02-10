@@ -1,16 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const StudentModify = ({ setShowModal, setIsDone, item }) => {
   const { register, reset, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/studentlist/${item._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist/${item._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

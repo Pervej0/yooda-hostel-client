@@ -5,7 +5,7 @@ const AddFood = () => {
   const { register, reset, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
-    fetch("http://localhost:5000/foodlist", {
+    fetch("https://tranquil-sierra-69613.herokuapp.com/foodlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

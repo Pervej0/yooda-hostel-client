@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Pagination from "../SharedPage/Pagination";
 import StudentModify from "./Compo/StudentModify";
 import StudentTable from "./Compo/StudentTable";
 
@@ -11,12 +10,13 @@ const StudentList = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [studentCount, setStudentCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
+  const [checkedItems, setChekedItems] = useState([]);
   const perPageItem = 2;
   const getChecked = useRef(null);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/studentlist?currentPage=${currentPage}&&perPageItem=${perPageItem}`
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist?currentPage=${currentPage}&&perPageItem=${perPageItem}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -27,13 +27,14 @@ const StudentList = () => {
 
   const handleCheckBox = (e, id) => {
     setIsChecked(true);
-    // setCheckedID([...isChecked, id]);
+    setChekedItems([...checkedItems, id]);
+    console.log(checkedItems);
   };
 
   const handleDelete = (id) => {
     const confirm = window.confirm("Are sure want to delete this item?");
     if (confirm) {
-      fetch(`http://localhost:5000/studentlist/${id}`, {
+      fetch(`https://tranquil-sierra-69613.herokuapp.com/studentlist/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +54,7 @@ const StudentList = () => {
     setCurrentPage(num);
   };
 
-  const handleAllChecked = () => {
+  const handleAllChecked = (e) => {
     console.log(getChecked.current.offsetWidth);
   };
 

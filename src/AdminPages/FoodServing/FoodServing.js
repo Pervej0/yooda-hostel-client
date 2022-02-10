@@ -12,7 +12,7 @@ const FoodServing = () => {
   const [isSearched, setIsSearched] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/studentlist")
+    fetch("https://tranquil-sierra-69613.herokuapp.com/studentlist")
       .then((res) => res.json())
       .then((data) => {
         setData(data.products);
@@ -21,7 +21,9 @@ const FoodServing = () => {
 
   const handleSearchByRoll = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/studentlist/${studentRoll}?type="roll"`)
+    fetch(
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist/${studentRoll}?type="roll"`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsSearched(true);
@@ -32,7 +34,9 @@ const FoodServing = () => {
   const handleSelectChange = (e) => {
     const status = e.target.value;
     console.log(status);
-    fetch(`http://localhost:5000/studentlist/${status}?type="status"`)
+    fetch(
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist/${status}?type="status"`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsSearched(true);
@@ -42,7 +46,9 @@ const FoodServing = () => {
 
   const handleDateSearch = (e) => {
     const dateVal = e.target.value;
-    fetch(`http://localhost:5000/studentlist/${dateVal}?type="dateValue"`)
+    fetch(
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist/${dateVal}?type="dateValue"`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsSearched(true);

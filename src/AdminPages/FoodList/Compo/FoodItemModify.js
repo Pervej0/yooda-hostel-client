@@ -5,7 +5,7 @@ const FoodItemModify = ({ setShowModal, setIsDone, item }) => {
   const { register, reset, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/foodlist/${item._id}`, {
+    fetch(`https://tranquil-sierra-69613.herokuapp.com/foodlist/${item._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

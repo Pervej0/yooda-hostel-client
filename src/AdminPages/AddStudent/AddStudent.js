@@ -6,7 +6,7 @@ const AddStudent = () => {
 
   const onSubmit = (data) => {
     data.status = "active";
-    fetch("http://localhost:5000/studentlist", {
+    fetch("https://tranquil-sierra-69613.herokuapp.com/studentlist", {
       method: "POST",
       headers: {
         "content-type": "application/json",

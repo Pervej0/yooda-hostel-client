@@ -6,7 +6,7 @@ const FoodServingModified = ({ setShowModal, setIsDone, item }) => {
   const [foodItems, setFoodItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/foodlist")
+    fetch("https://tranquil-sierra-69613.herokuapp.com/foodlist")
       .then((res) => res.json())
       .then((data) => setFoodItems(data.products));
   }, []);
@@ -14,13 +14,16 @@ const FoodServingModified = ({ setShowModal, setIsDone, item }) => {
   const onSubmit = (data) => {
     data.serveStatus = "Served";
     console.log(data);
-    fetch(`http://localhost:5000/studentlist/servelist/${item._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://tranquil-sierra-69613.herokuapp.com/studentlist/servelist/${item._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

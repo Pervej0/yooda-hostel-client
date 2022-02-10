@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "../SharedPage/Pagination";
 import FoodItemModify from "./Compo/FoodItemModify";
 
 const FoodList = () => {
@@ -13,7 +12,7 @@ const FoodList = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/foodlist?currentPage=${currentPage}&&perPageItem=${perPageItem}`
+      `https://tranquil-sierra-69613.herokuapp.com/foodlist?currentPage=${currentPage}&&perPageItem=${perPageItem}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +24,7 @@ const FoodList = () => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Are sure want to delete this item?");
     if (confirm) {
-      fetch(`http://localhost:5000/foodlist/${id}`, {
+      fetch(`https://tranquil-sierra-69613.herokuapp.com/foodlist/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

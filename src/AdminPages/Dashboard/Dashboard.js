@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div className="border-b border-t">
       <div className="bg-gray-100 font-sans leading-normal">
-        <div className="flex md:flex-no-wrap flex-wrap bg-gray-200">
+        <div className="flex md:flex-nowrap flex-wrap bg-gray-200">
           <div className="w-full dashboard-sidebar py-4 sm:block md:w-1/5 bg-gray-900 md:bg-gray-900 relative px-2 text-center md:pt-8 md:left-0 lg:relative">
             <div className="mx-auto lg:float-right lg:px-10">
               <ul className="list-reset flex flex-row md:flex-col text-center md:text-left">
