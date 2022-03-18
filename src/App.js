@@ -1,13 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
-import AddFood from "./AdminPages/AddFood/AddFood";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./AdminPages/Dashboard/Dashboard";
 import DashboardNav from "./AdminPages/Dashboard/Compo/DashboardNav";
 import AddStudent from "./AdminPages/AddStudent/AddStudent";
-import FoodList from "./AdminPages/FoodList/FoodList";
 import StudentList from "./AdminPages/StudentList/StudentList";
-import FoodServing from "./AdminPages/FoodServing/FoodServing";
 
 function App() {
   return (
@@ -24,11 +20,8 @@ function App() {
                 </h1>
               }
             />
-            <Route path="/dashboard/addFood" element={<AddFood />} />
             <Route path="/dashboard/addStudent" element={<AddStudent />} />
-            <Route path="/dashboard/foodlist" element={<FoodList />} />
             <Route path="/dashboard/studentlist" element={<StudentList />} />
-            <Route path="/dashboard/foodserving" element={<FoodServing />} />
           </Route>
         </Routes>
       </Router>

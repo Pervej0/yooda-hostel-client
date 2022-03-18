@@ -14,40 +14,21 @@ const Dashboard = () => {
                     className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
                     to="/"
                   >
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
-                    to="dashboard/addFood"
-                  >
-                    Add Food
+                    Student
                   </Link>
                 </li>
                 <Link
                   className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
                   to="dashboard/addStudent"
                 >
-                  Add Student
+                  - Add Student
                 </Link>
-                <Link
-                  className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
-                  to="dashboard/foodlist"
-                >
-                  Food List
-                </Link>
+
                 <Link
                   className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
                   to="dashboard/studentlist"
                 >
-                  Student List
-                </Link>
-                <Link
-                  className="block py-1 px-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-gray-400"
-                  to="/dashboard/foodserving"
-                >
-                  Food Serving
+                  - View Students
                 </Link>
               </ul>
             </div>
